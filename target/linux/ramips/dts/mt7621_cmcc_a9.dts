@@ -159,14 +159,9 @@
 			label = "lan1";
 		};
 
-		port@2 {
-			status = "okay";
-			label = "lan2";
-		};
-    
 		port@4 {
 			status = "okay";
-			label = "lan3";
+			label = "lan2";
 		};
 	};
 };
