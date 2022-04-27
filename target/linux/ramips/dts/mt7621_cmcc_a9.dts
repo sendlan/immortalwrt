@@ -26,12 +26,12 @@
 
 		led_status_red: status_red {
 			label = "red:status";
-			gpios = <&gpio 15 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpio 14 GPIO_ACTIVE_HIGH>;
 		};
 
 		led_status_blue: status_blue {
 			label = "blue:status";
-			gpios = <&gpio 15 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio 15 GPIO_ACTIVE_HIGH>;
 		};
 	};
 
