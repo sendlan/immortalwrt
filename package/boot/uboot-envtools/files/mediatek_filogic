@@ -136,6 +136,10 @@ smartrg,sdg-8734)
 	local envdev=$(find_mmc_part "u-boot-env" "mmcblk0")
 	ubootenv_add_uci_config "$envdev" "0x0" "0x8000" "0x8000"
 	;;
+sl,3000)
+	local envdev=/dev/mtd$(find_mtd_index "u-boot-env")
+	ubootenv_add_uci_config "$envdev" "0x0" "0x80000" "0x80000" "1"
+	;;
 ubnt,unifi-6-plus)
 	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x80000" "0x10000"
 	;;

@@ -132,6 +132,7 @@ platform_do_upgrade() {
 		;;
 	cudy,re3000-v1|\
 	cudy,wr3000-v1|\
+	sl,3000|\
 	yuncore,ax835)
 		default_do_upgrade "$1"
 		;;

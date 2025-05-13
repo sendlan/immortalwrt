@@ -1714,6 +1714,25 @@ define Device/ruijie_rg-x60-pro
 endef
 TARGET_DEVICES += ruijie_rg-x60-pro
 
+define Device/sl_3000
+  DEVICE_VENDOR := SL
+  DEVICE_MODEL := 3000
+  DEVICE_DTS := mt7981b-sl-3000
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware \
+		     mkf2fs e2fsprogs blkid blockdev coremark losetup kmod-fs-ext4 \
+		     kmod-mmc kmod-fs-f2fs kmod-fs-vfat kmod-nls-cp437 \
+		     kmod-nls-iso8859-1 mmc-utils fdisk cgdisk partx-utils tune2fs uboot-envtools
+  IMAGES := sysupgrade.bin
+  IMAGE_SIZE := 30464k
+  KERNEL := kernel-bin | lzma | \
+	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
+  KERNEL_INITRAMFS := kernel-bin | lzma | \
+	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd | pad-to 64k
+  IMAGE/sysupgrade.bin := append-kernel | append-metadata
+endef
+TARGET_DEVICES += sl_3000
+
 define Device/tplink_re6000xd
   DEVICE_VENDOR := TP-Link
   DEVICE_MODEL := RE6000XD
