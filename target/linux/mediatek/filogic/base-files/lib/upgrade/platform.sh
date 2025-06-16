@@ -192,6 +192,9 @@ platform_do_upgrade() {
 		CI_ROOT_UBIPART=ubi
 		nand_do_upgrade "$1"
 		;;
+	sl,3000)
+		default_do_upgrade "$1"
+		;;
 	*)
 		nand_do_upgrade "$1"
 		;;
